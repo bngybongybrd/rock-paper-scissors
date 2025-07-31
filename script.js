@@ -37,36 +37,57 @@ function playRound(humanChoice, computerChoice) {
 
 let humanScore = 0
 let computerScore = 0
+let gameOver = false
 
 const buttons = document.querySelector("#buttons")
 buttons.addEventListener("click", (e) => {
-    humanChoice = e.target.id
-    computerChoice = getComputerChoice()
+    if (gameOver) return
 
+    console.log(e.target.id)
+    let humanChoice = e.target.id
+    let computerChoice = getComputerChoice()
+    console.log(humanChoice)
+    console.log(computerChoice)
+
+    // see who won
     playRound(humanChoice, computerChoice)
+    console.log(computerScore)
+    console.log(humanScore)
 
-    const humanScoreSpan = document.querySelector("#humanScore")
-    const computerScoreSpan = document.querySelector("#computerScore")
+    const humanScoreSpan = document.querySelector("#humanScoreSpan")
+    const computerScoreSpan = document.querySelector("#computerScoreSpan")
 
-    humanScoreSpan.textContent(humanScore)
-    computerScoreSpan.textContent(computerScore)
+    // set new score
+    humanScoreSpan.textContent = humanScore
+    computerScoreSpan.textContent = computerScore
 
     if (humanScore == 5 || computerScore == 5) {
+        gameOver = true
+
         const result = document.createElement("h2")
         if (humanScore == 5) {
-            result.textContent("Game Over! You won!")
+            result.textContent = "Game Over! You won!"
         } else {
-            result.textContent("Game Over! Computer won!")
+            result.textContent = "Game Over! Computer won!"
         }
 
         const playAgainBtn = document.createElement("button")
         playAgainBtn.textContent = "Play again?"
+
+
+        // add to buttons new div
+        const resultDiv = document.createElement("div")
+        resultDiv.append(result, playAgainBtn)
+        document.querySelector("body").append(resultDiv)
+
+
         playAgainBtn.addEventListener("click", () => {
             humanScore = 0
             computerScore = 0
-            humanScoreSpan.textContent(humanScore)
-            computerScoreSpan.textContent(computerScore)
-            playAgainBtn.remove()
+            humanScoreSpan.textContent = humanScore
+            computerScoreSpan.textContent = computerScore
+            resultDiv.remove()
+            gameOver = false
         })
     }
 })
