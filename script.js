@@ -35,18 +35,19 @@ function playRound(humanChoice, computerChoice) {
 }
 
 
-function playGame() {
-    for (let i = 0; i < 5; i++) {
-        playRound(getHumanChoice(), getComputerChoice())
+// function playGame() {
+//     for (let i = 0; i < 5; i++) {
+//         playRound(getHumanChoice(), getComputerChoice())
 
-        console.log(`Human Score: ${humanScore}`)
-        console.log(`Computer Score: ${computerScore}`)
-    }
-}
+//         console.log(`Human Score: ${humanScore}`)
+//         console.log(`Computer Score: ${computerScore}`)
+//     }
+// }
 
 
 let humanScore = 0
 let computerScore = 0
 
-playGame()
+// playGame()
+
 
