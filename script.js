@@ -35,18 +35,38 @@ function playRound(humanChoice, computerChoice) {
 }
 
 
-function playGame() {
-    for (let i = 0; i < 5; i++) {
-        playRound(getHumanChoice(), getComputerChoice())
-
-        console.log(`Human Score: ${humanScore}`)
-        console.log(`Computer Score: ${computerScore}`)
-    }
-}
-
-
 let humanScore = 0
 let computerScore = 0
 
-playGame()
+const buttons = document.querySelector("#buttons")
+buttons.addEventListener("click", (e) => {
+    humanChoice = e.target.id
+    computerChoice = getComputerChoice()
 
+    playRound(humanChoice, computerChoice)
+
+    const humanScoreSpan = document.querySelector("#humanScore")
+    const computerScoreSpan = document.querySelector("#computerScore")
+
+    humanScoreSpan.textContent(humanScore)
+    computerScoreSpan.textContent(computerScore)
+
+    if (humanScore == 5 || computerScore == 5) {
+        const result = document.createElement("h2")
+        if (humanScore == 5) {
+            result.textContent("Game Over! You won!")
+        } else {
+            result.textContent("Game Over! Computer won!")
+        }
+
+        const playAgainBtn = document.createElement("button")
+        playAgainBtn.textContent = "Play again?"
+        playAgainBtn.addEventListener("click", () => {
+            humanScore = 0
+            computerScore = 0
+            humanScoreSpan.textContent(humanScore)
+            computerScoreSpan.textContent(computerScore)
+            playAgainBtn.remove()
+        })
+    }
+})
