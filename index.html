@@ -4,56 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <script src="script.js" defer></script> -->
-    <style>
-      li {
-        margin-bottom: 10px;
-      }
-
-      li button {
-        font-size: 12px;
-        margin-left: 20px;
-        color: #666;
-      }
-    </style>
+    <script src="script.js" defer></script>
 </head>
 <body>
-  <h1>My shopping list</h1>
-
-  <div>
-    <label for="item">Enter a new item:</label>
-    <input type="text" name="item" id="item">
-    <button>Add item</button>
-  </div>
-
-  <ul>
-
-  </ul>
-
-  <script>
-    const ul = document.querySelector("ul")
-    const input = document.querySelector("input")
-    const btn = document.querySelector("button")
-
-    btn.addEventListener("click", (e) => {
-      if (input.value !== "") {
-        const li = document.createElement("li")
-        const span = document.createElement("span")
-        const del = document.createElement("button")
-
-        let item = input.value
-        input.value = ""
-
-        span.textContent = item
-        del.textContent = "Delete"
-
-        li.append(span, del)
-        ul.append(li)
-
-        del.addEventListener("click", () => li.remove())
-      }
-    })
-
-  </script>
 </body>
 </html>
