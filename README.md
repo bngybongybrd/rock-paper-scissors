@@ -3,7 +3,7 @@
 A simple Rock Paper Scissors game built with HTML, CSS, and JavaScript.
 [**Play the Demo Here**](https://bngybongybrd.github.io/rock-paper-scissors/)
 
-![Game Screenshot](images/screenshot.png)
+![Game Screenshot](images/Screenshot.png)
 
 Click **Rock**, **Paper**, or **Scissors** to make your choice.  
 The computer picks randomly. First to **5 points** wins!  
